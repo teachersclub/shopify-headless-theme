@@ -217,34 +217,5 @@
     {%- endif -%}
   {% render 'gp-head' %}
 </head>
-  <body><div id="veda-root" style="opacity: 0; overflow: clip; display: flow-root;">
-<!--VEDA_HEADER_THEME_POSITION-->
-{%sections 'veda-theme-header' %}
-
-    {{ content_for_layout }}
-
-    {%- if should_redirect -%}
-      <div class="redirect">
-        {%- if settings.storefront_hostname != blank -%}
-        <h1>Redirecting...</h1>
-        <p>
-          <a id="redirect-link" href="https://{{ settings.storefront_hostname }}/">Click here</a>
-          if you are not automically redirected.
-        </p>
-        <script>
-          if (!window.Shopify.designMode) {
-            var redirectLink = document.getElementById("redirect-link");
-            redirectLink.href = window.storefrontRedirectUrl;
-          }
-        </script>
-        {%- else -%}
-        <h1>Redirect URL not set</h1>
-        <p>Configure the redirects in "Theme settings > Storefront".</p>
-        {%- endif -%}
-      </div>
-    {%- endif -%}
-  
-<!--VEDA_FOOTER_THEME_POSITION-->
-{%sections 'veda-theme-footer' %}
-<!--BEFORE_CLOSE_VEDA_ROOT--></div></body>
+  <body>{{ content_for_layout }}</body>
 </html>
