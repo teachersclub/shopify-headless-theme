@@ -1,5 +1,7 @@
 <!doctype html>
-<html lang="{{ request.locale.iso_code }}">
+{% assign locale_rtl = "ar,fa,he,ks,ps,sd,ur," %}
+{% assign current_locale = localization.language.iso_code | append: ',' %}
+<html {% if locale_rtl contains current_locale %}dir="rtl"{% endif %}  lang="{{ request.locale.iso_code }}">
   <head>
 <!--VEDA_ROCKET_LOADER--><script src="{{ 'veda-rocket-loader.js' | asset_url }}" defer></script><!--END_VEDA_ROCKET_LOADER-->
 
